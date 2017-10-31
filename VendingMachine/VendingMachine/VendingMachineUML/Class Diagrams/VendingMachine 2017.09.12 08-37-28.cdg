@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="VendingMachine">
+  <ClassDiagramComponents>
+    <Class name="App" package="com.practiceprogramming.vendingmachine" visibility="public" xPosition="1401.0" yPosition="194.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Controller" package="com.practiceprogramming.vendingmachine.controller" visibility="public" xPosition="1200.0" yPosition="491.0">
+      <Fields>
+        <Field name="view" type="VendingMachineView" visibility="private"/>
+        <Field name="service" type="VendingMachineServiceLayer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="VendingMachineView" name="view"/>
+          <Argument type="VendingMachineServiceLayer" name="service"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="getMenuSelection" returnType="int" visibility="private"/>
+        <Method name="insertChange" returnType="void" visibility="private"/>
+        <Method name="unknownCommand" returnType="void" visibility="private"/>
+        <Method name="exitMessage" returnType="void" visibility="private"/>
+        <Method name="listItems" returnType="void" visibility="private"/>
+        <Method name="makePurchase" returnType="void" visibility="private"/>
+        <Method name="returnChange" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="VendingMachineDaoFileImpl" package="com.practiceprogramming.vendingmachine.dao" visibility="public" xPosition="1401.0" yPosition="830.0">
+      <Fields>
+        <Field name="vendingMachineItems" type="Map&lt;String, Item&gt;" visibility="private"/>
+        <Field name="VEND_FILE" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DELIMITER" type="String" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getAllItems" returnType="List&lt;Item&gt;" visibility="public"/>
+        <Method name="addItem" returnType="Item" visibility="public">
+          <Argument type="String" name="itemIdNumber"/>
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="getItem" returnType="Item" visibility="public">
+          <Argument type="String" name="itemIdNumber"/>
+        </Method>
+        <Method name="removeItem" returnType="Item" visibility="public">
+          <Argument type="String" name="itemIdNumber"/>
+        </Method>
+        <Method name="readInventory" returnType="void" visibility="public"/>
+        <Method name="writeInventory" returnType="void" visibility="public"/>
+        <Method name="updateInventory" returnType="Item" visibility="public">
+          <Argument type="Item" name="item"/>
+          <Argument type="int" name="itemInventory"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VendingMachinePersistenceException" package="com.practiceprogramming.vendingmachine.dao" visibility="public" xPosition="2324.0" yPosition="898.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Throwable" name="cause"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Change" package="com.practiceprogramming.vendingmachine.dto" visibility="public" xPosition="2366.0" yPosition="103.0">
+      <Fields>
+        <Field name="pennies" type="int" visibility="private"/>
+        <Field name="nickels" type="int" visibility="private"/>
+        <Field name="dimes" type="int" visibility="private"/>
+        <Field name="quarters" type="int" visibility="private"/>
+        <Field name="totalChange" type="int" visibility="private"/>
+        <Field name="userMoney" type="BigDecimal" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numOfPennies"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPennies" returnType="int" visibility="public"/>
+        <Method name="setPennies" returnType="void" visibility="public">
+          <Argument type="int" name="pennies"/>
+        </Method>
+        <Method name="getNickels" returnType="int" visibility="public"/>
+        <Method name="setNickels" returnType="void" visibility="public">
+          <Argument type="int" name="nickels"/>
+        </Method>
+        <Method name="getDimes" returnType="int" visibility="public"/>
+        <Method name="setDimes" returnType="void" visibility="public">
+          <Argument type="int" name="dimes"/>
+        </Method>
+        <Method name="getQuarters" returnType="int" visibility="public"/>
+        <Method name="setQuarters" returnType="void" visibility="public">
+          <Argument type="int" name="quarters"/>
+        </Method>
+        <Method name="getTotalChange" returnType="int" visibility="public"/>
+        <Method name="setTotalChange" returnType="void" visibility="public">
+          <Argument type="int" name="totalChange"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Item" package="com.practiceprogramming.vendingmachine.dto" visibility="public" xPosition="234.0" yPosition="92.0">
+      <Fields>
+        <Field name="itemID" type="String" visibility="private"/>
+        <Field name="itemCost" type="BigDecimal" visibility="private"/>
+        <Field name="itemName" type="String" visibility="private"/>
+        <Field name="itemInventory" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="itemID"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getItemID" returnType="String" visibility="public"/>
+        <Method name="setItemID" returnType="void" visibility="public">
+          <Argument type="String" name="itemID"/>
+        </Method>
+        <Method name="getItemCost" returnType="BigDecimal" visibility="public"/>
+        <Method name="setItemCost" returnType="void" visibility="public">
+          <Argument type="BigDecimal" name="itemCost"/>
+        </Method>
+        <Method name="getItemName" returnType="String" visibility="public"/>
+        <Method name="setItemName" returnType="void" visibility="public">
+          <Argument type="String" name="itemName"/>
+        </Method>
+        <Method name="getItemInventory" returnType="int" visibility="public"/>
+        <Method name="setItemInventory" returnType="void" visibility="public">
+          <Argument type="int" name="itemInventory"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VendingMachineAuditDaoFileImpl" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="679.0" yPosition="290.0">
+      <Fields>
+        <Field name="AUDIT_FILE" type="String" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="writeAuditEntry" returnType="void" visibility="public">
+          <Argument type="String" name="entry"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VendingMachineIdNotValidException" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="589.0" yPosition="103.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Throwable" name="cause"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VendingMachineInsufficientFundsException" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="1766.0" yPosition="103.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Throwable" name="cause"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VendingMachineOutOfStockException" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="1810.0" yPosition="491.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Throwable" name="cause"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="VendingMachineServiceLayerImpl" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="1083.0" yPosition="103.0">
+      <Fields>
+        <Field name="dao" type="VendingMachineDao" visibility="private"/>
+        <Field name="auditDao" type="VendingMachineAuditDao" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="VendingMachineDao" name="dao"/>
+          <Argument type="VendingMachineAuditDao" name="auditDao"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="changeInserted" returnType="BigDecimal" visibility="public">
+          <Argument type="BigDecimal" name="insertedMoney"/>
+        </Method>
+        <Method name="returnChange" returnType="Change" visibility="public"/>
+        <Method name="purchaseItem" returnType="Item" visibility="public">
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="changeBalance" returnType="BigDecimal" visibility="public"/>
+        <Method name="getItem" returnType="Item" visibility="public">
+          <Argument type="String" name="itemIdNumber"/>
+        </Method>
+        <Method name="getAllItems" returnType="List&lt;Item&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserIOConsoleImpl" package="com.practiceprogramming.vendingmachine.ui" visibility="public" xPosition="115.0" yPosition="474.0">
+      <Fields>
+        <Field name="sc" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="print" returnType="void" visibility="public">
+          <Argument type="String" name="msg"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="double" name="min"/>
+          <Argument type="double" name="max"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="float" name="min"/>
+          <Argument type="float" name="max"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="long" name="min"/>
+          <Argument type="long" name="max"/>
+        </Method>
+        <Method name="readString" returnType="String" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readBigDecimal" returnType="BigDecimal" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readBigDecimal" returnType="BigDecimal" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="BigDecimal" name="min"/>
+          <Argument type="BigDecimal" name="max"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VendingMachineView" package="com.practiceprogramming.vendingmachine.ui" visibility="public" xPosition="1810.0" yPosition="660.0">
+      <Fields>
+        <Field name="io" type="UserIO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="UserIO" name="io"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="printMenuAndGetSelection" returnType="int" visibility="public"/>
+        <Method name="viewItems" returnType="void" visibility="public">
+          <Argument type="List&lt;Item&gt;" name="itemList"/>
+        </Method>
+        <Method name="displayViewItemsBanner" returnType="void" visibility="public"/>
+        <Method name="insertChangeBanner" returnType="void" visibility="public"/>
+        <Method name="insertChange" returnType="BigDecimal" visibility="public"/>
+        <Method name="displayMoneyInserted" returnType="void" visibility="public">
+          <Argument type="BigDecimal" name="userMoney"/>
+        </Method>
+        <Method name="selectItem" returnType="String" visibility="public"/>
+        <Method name="displayItemPurchased" returnType="void" visibility="public">
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="itemNotInstockBanner" returnType="void" visibility="public">
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="currentBalance" returnType="void" visibility="public">
+          <Argument type="BigDecimal" name="changeNotReturned"/>
+        </Method>
+        <Method name="displayChange" returnType="void" visibility="public">
+          <Argument type="Change" name="change"/>
+        </Method>
+        <Method name="displayExitBanner" returnType="void" visibility="public"/>
+        <Method name="displayUnknownCommandBanner" returnType="void" visibility="public"/>
+        <Method name="displayErrorMessage" returnType="void" visibility="public">
+          <Argument type="String" name="errorMsg"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="VendingMachineDao" package="com.practiceprogramming.vendingmachine.dao" visibility="public" xPosition="741.0" yPosition="757.0">
+      <Methods>
+        <Method name="getAllItems" returnType="List&lt;Item&gt;" visibility="package"/>
+        <Method name="addItem" returnType="Item" visibility="package">
+          <Argument type="String" name="itemIdNumber"/>
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="updateInventory" returnType="Item" visibility="package">
+          <Argument type="Item" name="item"/>
+          <Argument type="int" name="itemInventory"/>
+        </Method>
+        <Method name="removeItem" returnType="Item" visibility="package">
+          <Argument type="String" name="itemIdNumber"/>
+        </Method>
+        <Method name="getItem" returnType="Item" visibility="package">
+          <Argument type="String" name="itemIdNumber"/>
+        </Method>
+        <Method name="readInventory" returnType="void" visibility="package"/>
+        <Method name="writeInventory" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="VendingMachineAuditDao" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="1390.0" yPosition="365.0">
+      <Methods>
+        <Method name="writeAuditEntry" returnType="void" visibility="public">
+          <Argument type="String" name="entry"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="VendingMachineServiceLayer" package="com.practiceprogramming.vendingmachine.servicelayer" visibility="public" xPosition="802.0" yPosition="491.0">
+      <Methods>
+        <Method name="changeInserted" returnType="BigDecimal" visibility="package">
+          <Argument type="BigDecimal" name="userMoney"/>
+        </Method>
+        <Method name="returnChange" returnType="Change" visibility="package"/>
+        <Method name="purchaseItem" returnType="Item" visibility="package">
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="changeBalance" returnType="BigDecimal" visibility="package"/>
+        <Method name="getItem" returnType="Item" visibility="public">
+          <Argument type="String" name="itemIdNumber"/>
+        </Method>
+        <Method name="getAllItems" returnType="List&lt;Item&gt;" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="UserIO" package="com.practiceprogramming.vendingmachine.ui" visibility="public" xPosition="2482.0" yPosition="491.0">
+      <Methods>
+        <Method name="print" returnType="void" visibility="package">
+          <Argument type="String" name="msg"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="double" name="min"/>
+          <Argument type="double" name="max"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="float" name="min"/>
+          <Argument type="float" name="max"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="long" name="min"/>
+          <Argument type="long" name="max"/>
+        </Method>
+        <Method name="readBigDecimal" returnType="BigDecimal" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readBigDecimal" returnType="BigDecimal" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="BigDecimal" name="min"/>
+          <Argument type="BigDecimal" name="max"/>
+        </Method>
+        <Method name="readString" returnType="String" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.practiceprogramming.vendingmachine.dao.VendingMachineDaoFileImpl" target="com.practiceprogramming.vendingmachine.dao.VendingMachineDao"/>
+    <HasRelation name="service" source="com.practiceprogramming.vendingmachine.controller.Controller" target="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.practiceprogramming.vendingmachine.ui.UserIOConsoleImpl" target="com.practiceprogramming.vendingmachine.ui.UserIO"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayerImpl" target="com.practiceprogramming.vendingmachine.dto.Item" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.ui.VendingMachineView" target="com.practiceprogramming.vendingmachine.dto.Change" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="io" source="com.practiceprogramming.vendingmachine.ui.VendingMachineView" target="com.practiceprogramming.vendingmachine.ui.UserIO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayer" target="com.practiceprogramming.vendingmachine.dto.Change" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="auditDao" source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayerImpl" target="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineAuditDao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayerImpl" target="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayer"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayerImpl" target="com.practiceprogramming.vendingmachine.dto.Change" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.ui.VendingMachineView" target="com.practiceprogramming.vendingmachine.dto.Item" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="view" source="com.practiceprogramming.vendingmachine.controller.Controller" target="com.practiceprogramming.vendingmachine.ui.VendingMachineView" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayer" target="com.practiceprogramming.vendingmachine.dto.Item" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="vendingMachineItems" source="com.practiceprogramming.vendingmachine.dao.VendingMachineDaoFileImpl" target="com.practiceprogramming.vendingmachine.dto.Item" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, Item&gt;"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.dao.VendingMachineDaoFileImpl" target="com.practiceprogramming.vendingmachine.dto.Item" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dao" source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineServiceLayerImpl" target="com.practiceprogramming.vendingmachine.dao.VendingMachineDao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineAuditDaoFileImpl" target="com.practiceprogramming.vendingmachine.servicelayer.VendingMachineAuditDao"/>
+    <UseRelation source="com.practiceprogramming.vendingmachine.dao.VendingMachineDao" target="com.practiceprogramming.vendingmachine.dto.Item" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

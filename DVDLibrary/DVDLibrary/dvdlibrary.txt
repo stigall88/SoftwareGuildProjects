@@ -1,0 +1,9 @@
+002::Next Friday::Release Date 2001::Director: Ice::MPAA Rating: R::Studio: Cube::Your rating: Hilarious
+003::Little Giants::Release Date 1994::MPAA Rating: PG::Director: Joe::Studio: Fox::Your rating: Childhood classic
+004::The Sandlot::Release Date 1997::Director: Jim::MPAA Rating: PG::Studio: Paramount::Your rating: classic
+005::The Dark Knight::Release Date 2008::MPAA Rating: PG-13::Director: Nolan::Studio: DC::Your rating: Phenomenal film
+006::The Dark Knight Rises::Release Date 2011::Director: Nolan::MPAA Rating: PG-13::Studio: DC::Your rating: Phenomenal again!
+007::Lion King::Release Date 1994::MPAA Rating: G::Director: Bill::Studio: Disney::Your rating: Classic
+008::Halloween::Release Date 1978::MPAA Rating: R::Director: John::Studio: Paramount::Your rating: All time fave horror movie
+009::Little Rascals::Release Date 1995::Director: Jim::MPAA Rating: PG::Studio: Fox::Your rating: He man woman haters club!
+010::Ted::Release Date 2010::Director: Marky Mark::MPAA Rating: R::Studio: Fox::Your rating: Hilarious

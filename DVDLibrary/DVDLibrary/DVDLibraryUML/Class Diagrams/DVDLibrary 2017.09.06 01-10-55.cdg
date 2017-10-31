@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="DVDLibrary">
+  <ClassDiagramComponents>
+    <Class name="App" package="com.practiceprogramming.dvdlibrary" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DVDLibraryController" package="com.practiceprogramming.dvdlibrary.controller" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="view" type="DVDLibraryView" visibility="package"/>
+        <Field name="dao" type="DVDLibraryDao" visibility="package"/>
+        <Field name="io" type="UserIO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DVDLibraryDao" name="dao"/>
+          <Argument type="DVDLibraryView" name="view"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="getMenuSelection" returnType="int" visibility="private"/>
+        <Method name="addDVD" returnType="void" visibility="public"/>
+        <Method name="removeDVD" returnType="void" visibility="public"/>
+        <Method name="editDVD" returnType="void" visibility="public"/>
+        <Method name="listAllDVDs" returnType="void" visibility="public"/>
+        <Method name="viewDVD" returnType="void" visibility="public"/>
+        <Method name="searchDVD" returnType="void" visibility="public"/>
+        <Method name="unknownCommand" returnType="void" visibility="private"/>
+        <Method name="exitMessage" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="DVDLibraryDaoException" package="com.practiceprogramming.dvdlibrary.dao" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="message"/>
+          <Argument type="Throwable" name="cause"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="DVDLibraryDaoFileImpl" package="com.practiceprogramming.dvdlibrary.dao" visibility="public" xPosition="890.0" yPosition="355.0">
+      <Fields>
+        <Field name="DVD_FILE" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DELIMITER" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="dvds" type="Map&lt;String, DVD&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="writeDVDLibrary" returnType="void" visibility="private"/>
+        <Method name="loadDVDLibrary" returnType="void" visibility="private"/>
+        <Method name="addDVD" returnType="DVD" visibility="public">
+          <Argument type="String" name="dvdID"/>
+          <Argument type="DVD" name="dvd"/>
+        </Method>
+        <Method name="listAllDVD" returnType="List&lt;DVD&gt;" visibility="public"/>
+        <Method name="removeDVD" returnType="DVD" visibility="public">
+          <Argument type="String" name="dvdID"/>
+        </Method>
+        <Method name="updateDVD" returnType="DVD" visibility="public">
+          <Argument type="String" name="dvdID"/>
+          <Argument type="DVD" name="dvd"/>
+        </Method>
+        <Method name="getDVD" returnType="DVD" visibility="public">
+          <Argument type="String" name="dvdID"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DVD" package="com.practiceprogramming.dvdlibrary.dto" visibility="public" xPosition="1417.0" yPosition="20.0">
+      <Fields>
+        <Field name="dvdID" type="String" visibility="private"/>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="releaseDate" type="String" visibility="private"/>
+        <Field name="mpaaRating" type="String" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+        <Field name="studio" type="String" visibility="private"/>
+        <Field name="userRating" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dvdID"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDvdID" returnType="String" visibility="public"/>
+        <Method name="setDvdID" returnType="void" visibility="public">
+          <Argument type="String" name="dvdID"/>
+        </Method>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getReleaseDate" returnType="String" visibility="public"/>
+        <Method name="setReleaseDate" returnType="void" visibility="public">
+          <Argument type="String" name="releaseDate"/>
+        </Method>
+        <Method name="getMpaaRating" returnType="String" visibility="public"/>
+        <Method name="setMpaaRating" returnType="void" visibility="public">
+          <Argument type="String" name="mpaaRating"/>
+        </Method>
+        <Method name="getDirector" returnType="String" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="String" name="director"/>
+        </Method>
+        <Method name="getStudio" returnType="String" visibility="public"/>
+        <Method name="setStudio" returnType="void" visibility="public">
+          <Argument type="String" name="studio"/>
+        </Method>
+        <Method name="getUserRating" returnType="String" visibility="public"/>
+        <Method name="setUserRating" returnType="void" visibility="public">
+          <Argument type="String" name="userRating"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DVDLibraryView" package="com.practiceprogramming.dvdlibrary.ui" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="io" type="UserIO" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="UserIO" name="io"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="printMenuAndGetSelection" returnType="int" visibility="public"/>
+        <Method name="getNewDVDInfo" returnType="DVD" visibility="public"/>
+        <Method name="displayAddDVDBanner" returnType="void" visibility="public"/>
+        <Method name="displayAddDVDSuccessBanner" returnType="void" visibility="public"/>
+        <Method name="displayRemoveDVDBanner" returnType="void" visibility="public"/>
+        <Method name="displayRemoveDVDSuccessBanner" returnType="void" visibility="public"/>
+        <Method name="displayEditDVDBanner" returnType="void" visibility="public"/>
+        <Method name="updatedDVD" returnType="DVD" visibility="public">
+          <Argument type="String" name="dvdID"/>
+        </Method>
+        <Method name="displayEditDVDSuccessBanner" returnType="void" visibility="public"/>
+        <Method name="displayDVDList" returnType="void" visibility="public">
+          <Argument type="List&lt;DVD&gt;" name="dvdList"/>
+        </Method>
+        <Method name="displayListDVDBanner" returnType="void" visibility="public"/>
+        <Method name="displayViewDVDBanner" returnType="void" visibility="public"/>
+        <Method name="getDVDIdChoice" returnType="String" visibility="public"/>
+        <Method name="displayDVDChoice" returnType="void" visibility="public">
+          <Argument type="DVD" name="dvd"/>
+        </Method>
+        <Method name="displaySearchForDVDBanner" returnType="void" visibility="public"/>
+        <Method name="getDVDTitle" returnType="String" visibility="public"/>
+        <Method name="displaySearchedDVD" returnType="void" visibility="public">
+          <Argument type="List&lt;DVD&gt;" name="currentList"/>
+          <Argument type="String" name="titleForSearch"/>
+        </Method>
+        <Method name="displayExitBanner" returnType="void" visibility="public"/>
+        <Method name="displayUnkownCommandBanner" returnType="void" visibility="public"/>
+        <Method name="displayErrorMessage" returnType="void" visibility="public">
+          <Argument type="String" name="errorMsg"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UserIOConsoleImpl" package="com.practiceprogramming.dvdlibrary.ui" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="sc" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="print" returnType="void" visibility="public">
+          <Argument type="String" name="msg"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="double" name="min"/>
+          <Argument type="double" name="max"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="float" name="min"/>
+          <Argument type="float" name="max"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="public">
+          <Argument type="String" name="prompt"/>
+          <Argument type="long" name="min"/>
+          <Argument type="long" name="max"/>
+        </Method>
+        <Method name="readString" returnType="String" visibility="public">
+          <Argument type="String" name="prompt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="DVDLibraryDao" package="com.practiceprogramming.dvdlibrary.dao" visibility="public" xPosition="483.0" yPosition="392.0">
+      <Methods>
+        <Method name="addDVD" returnType="DVD" visibility="package">
+          <Argument type="String" name="dvdID"/>
+          <Argument type="DVD" name="dvd"/>
+        </Method>
+        <Method name="listAllDVD" returnType="List&lt;DVD&gt;" visibility="package"/>
+        <Method name="removeDVD" returnType="DVD" visibility="package">
+          <Argument type="String" name="dvdID"/>
+        </Method>
+        <Method name="updateDVD" returnType="DVD" visibility="package">
+          <Argument type="String" name="dvdID"/>
+          <Argument type="DVD" name="dvd"/>
+        </Method>
+        <Method name="getDVD" returnType="DVD" visibility="package">
+          <Argument type="String" name="dvdID"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="UserIO" package="com.practiceprogramming.dvdlibrary.ui" visibility="public" xPosition="1663.0" yPosition="560.0">
+      <Methods>
+        <Method name="print" returnType="void" visibility="package">
+          <Argument type="String" name="msg"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readDouble" returnType="double" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="double" name="min"/>
+          <Argument type="double" name="max"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readFloat" returnType="float" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="float" name="min"/>
+          <Argument type="float" name="max"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readInt" returnType="int" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+        <Method name="readLong" returnType="long" visibility="package">
+          <Argument type="String" name="prompt"/>
+          <Argument type="long" name="min"/>
+          <Argument type="long" name="max"/>
+        </Method>
+        <Method name="readString" returnType="String" visibility="package">
+          <Argument type="String" name="prompt"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="dvds" source="com.practiceprogramming.dvdlibrary.dao.DVDLibraryDaoFileImpl" target="com.practiceprogramming.dvdlibrary.dto.DVD" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, DVD&gt;"/>
+    <HasRelation name="dao" source="com.practiceprogramming.dvdlibrary.controller.DVDLibraryController" target="com.practiceprogramming.dvdlibrary.dao.DVDLibraryDao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.practiceprogramming.dvdlibrary.dao.DVDLibraryDaoFileImpl" target="com.practiceprogramming.dvdlibrary.dao.DVDLibraryDao"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.practiceprogramming.dvdlibrary.ui.UserIOConsoleImpl" target="com.practiceprogramming.dvdlibrary.ui.UserIO"/>
+    <UseRelation source="com.practiceprogramming.dvdlibrary.dao.DVDLibraryDao" target="com.practiceprogramming.dvdlibrary.dto.DVD" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.practiceprogramming.dvdlibrary.dao.DVDLibraryDaoFileImpl" target="com.practiceprogramming.dvdlibrary.dto.DVD" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="io" source="com.practiceprogramming.dvdlibrary.controller.DVDLibraryController" target="com.practiceprogramming.dvdlibrary.ui.UserIO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="io" source="com.practiceprogramming.dvdlibrary.ui.DVDLibraryView" target="com.practiceprogramming.dvdlibrary.ui.UserIO" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.practiceprogramming.dvdlibrary.ui.DVDLibraryView" target="com.practiceprogramming.dvdlibrary.dto.DVD" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="view" source="com.practiceprogramming.dvdlibrary.controller.DVDLibraryController" target="com.practiceprogramming.dvdlibrary.ui.DVDLibraryView" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
